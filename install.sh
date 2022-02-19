@@ -22,3 +22,6 @@ fi
 
 # Apply Weave CNI
 kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
+
+# Untaint master node
+kubectl taint nodes $(hostname) node-role.kubernetes.io/master-
