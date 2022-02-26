@@ -9,11 +9,11 @@ kubeadm reset --force
 kubeadm init
 
 # Set KUBECONFIG
-if [ -n "$USER" ]; then
-    HOME=$(eval echo ~$USER)
-    mkdir -p $HOME/.kube
-    echo "y" | cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-    chown $USER:$USER $HOME/.kube/config
+if [ -n "${USER}" ]; then
+    HOME=$(eval echo ~${USER})
+    mkdir -p ${HOME}/.kube
+    echo "y" | cp -i /etc/kubernetes/admin.conf ${HOME}/.kube/config
+    chown ${USER}:${USER} ${HOME}/.kube/config
     echo "KUBECONFIG set for $1"
 else
     # export KUBECONFIG=/etc/kubernetes/admin.conf
